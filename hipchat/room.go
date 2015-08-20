@@ -98,15 +98,15 @@ type Icon struct {
 
 // Attribute represents an attribute on a card
 type Attribute struct {
-	Label string         `json:"label"`
+	Label string         `json:"label,omitempty"`
 	Value AttributeValue `json:"value"`
 }
 
 // AttributeValue represents the value of an attribute
 type AttributeValue struct {
-	Icon  string `json:"icon"`
-	Label string `json:"label"`
-	URL   string `json:"url"`
+	Icon  string `json:"icon,omitempty"`
+	Label string `json:"label,omitempty"`
+	URL   string `json:"url,omitempty"`
 }
 
 // ShareFileRequest represents a HipChat room file share request.
@@ -152,6 +152,14 @@ type SetTopicRequest struct {
 // InviteRequest represents a hipchat invite to room request
 type InviteRequest struct {
 	Reason string `json:"reason"`
+}
+
+// AddAttribute adds an attribute to a Card
+func (c *Card) AddAttribute(mainLabel, subLabel, url, iconURL string) {
+	attr := Attribute{Label: mainLabel}
+	attr.Value = AttributeValue{Label: subLabel, URL: url, Icon: iconURL}
+
+	c.Attributes = append(c.Attributes, attr)
 }
 
 // List returns all the rooms authorized.
