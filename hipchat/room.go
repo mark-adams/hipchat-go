@@ -86,7 +86,7 @@ type Card struct {
 	Title       string      `json:"title"`
 	Description string      `json:"description"`
 	Site        string      `json:"site,omitempty"`
-	Icon        string      `json:"icon,omitempty"`
+	Icon        Icon        `json:"icon,omitempty"`
 	Date        uint32      `json:"date,omitempty"`
 	Attributes  []Attribute `json:"attributes,omitempty"`
 }
