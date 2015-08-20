@@ -75,6 +75,37 @@ type NotificationRequest struct {
 	Message       string `json:"message,omitempty"`
 	Notify        bool   `json:"notify,omitempty"`
 	MessageFormat string `json:"message_format,omitempty"`
+	Card          Card   `json:"card,omitempty"`
+}
+
+// Card represents a HipChat card
+type Card struct {
+	Style       string      `json:"style"`
+	ID          string      `json:"id"`
+	URL         string      `json:"url"`
+	Title       string      `json:"title"`
+	Description string      `json:"description"`
+	Site        string      `json:"site"`
+	Date        uint32      `json:"date,omitempty"`
+	Attributes  []Attribute `json:"attributes,omitempty"`
+}
+
+// Icon represents an icon
+type Icon struct {
+	URL string `json:"url"`
+}
+
+// Attribute represents an attribute on a card
+type Attribute struct {
+	Label string         `json:"label"`
+	Value AttributeValue `json:"value"`
+}
+
+// AttributeValue represents the value of an attribute
+type AttributeValue struct {
+	Icon  string `json:"icon"`
+	Label string `json:"label"`
+	URL   string `json:"url"`
 }
 
 // ShareFileRequest represents a HipChat room file share request.
