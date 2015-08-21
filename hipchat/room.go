@@ -163,8 +163,16 @@ type InviteRequest struct {
 }
 
 // AddAttribute adds an attribute to a Card
-func (c *Card) AddAttribute(mainLabel *string, subLabel, url, iconURL string) {
-	attr := Attribute{Label: mainLabel}
+func (c *Card) AddAttribute(mainLabel, subLabel, url, iconURL string) {
+	var mainLabelStr *string
+
+	if mainLabel == "" {
+		mainLabelStr = nil
+	} else {
+		mainLabelStr = &mainLabel
+	}
+
+	attr := Attribute{Label: mainLabelStr}
 	attr.Value = AttributeValue{Label: subLabel, URL: url, Icon: iconURL}
 
 	c.Attributes = append(c.Attributes, attr)
