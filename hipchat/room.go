@@ -90,7 +90,7 @@ type Card struct {
 	Icon        Icon        `json:"icon,omitempty"`
 	Date        uint32      `json:"date,omitempty"`
 	Attributes  []Attribute `json:"attributes,omitempty"`
-	Activity    Activity    `json:"activity,omitempty"`
+	Activity    *Activity   `json:"activity,omitempty"`
 }
 
 // Icon represents an icon
