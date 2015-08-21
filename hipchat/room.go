@@ -89,6 +89,7 @@ type Card struct {
 	Icon        Icon        `json:"icon,omitempty"`
 	Date        uint32      `json:"date,omitempty"`
 	Attributes  []Attribute `json:"attributes,omitempty"`
+	Activity    Activity    `json:"activity,omitempty"`
 }
 
 // Icon represents an icon
@@ -107,6 +108,12 @@ type AttributeValue struct {
 	Icon  string `json:"icon,omitempty"`
 	Label string `json:"label,omitempty"`
 	URL   string `json:"url,omitempty"`
+}
+
+// Activity represents an activity that occurred
+type Activity struct {
+	Icon string `json:"icon,omitempty"`
+	HTML string `json:"html,omitempty"`
 }
 
 // ShareFileRequest represents a HipChat room file share request.
