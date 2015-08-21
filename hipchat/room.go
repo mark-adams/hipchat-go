@@ -1,6 +1,7 @@
 package hipchat
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -112,8 +113,8 @@ type AttributeValue struct {
 
 // Activity represents an activity that occurred
 type Activity struct {
-	Icon string `json:"icon,omitempty"`
-	HTML string `json:"html,omitempty"`
+	Icon string          `json:"icon,omitempty"`
+	HTML json.RawMessage `json:"html,omitempty"`
 }
 
 // ShareFileRequest represents a HipChat room file share request.
