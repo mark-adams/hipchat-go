@@ -100,7 +100,7 @@ type Icon struct {
 
 // Attribute represents an attribute on a card
 type Attribute struct {
-	Label *string        `json:"label,omitempty"`
+	Label string         `json:"label,omitempty"`
 	Value AttributeValue `json:"value"`
 }
 
@@ -164,15 +164,7 @@ type InviteRequest struct {
 
 // AddAttribute adds an attribute to a Card
 func (c *Card) AddAttribute(mainLabel, subLabel, url, iconURL string) {
-	var mainLabelStr *string
-
-	if mainLabel == "" {
-		mainLabelStr = nil
-	} else {
-		mainLabelStr = &mainLabel
-	}
-
-	attr := Attribute{Label: mainLabelStr}
+	attr := Attribute{Label: mainLabel}
 	attr.Value = AttributeValue{Label: subLabel, URL: url, Icon: iconURL}
 
 	c.Attributes = append(c.Attributes, attr)
