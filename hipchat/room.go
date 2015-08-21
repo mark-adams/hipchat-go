@@ -105,7 +105,7 @@ type Attribute struct {
 // AttributeValue represents the value of an attribute
 type AttributeValue struct {
 	Icon  string `json:"icon,omitempty"`
-	Label string `json:"label,omitempty"`
+	Label string `json:"label,string"`
 	URL   string `json:"url,omitempty"`
 }
 
